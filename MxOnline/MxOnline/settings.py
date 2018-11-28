@@ -17,6 +17,7 @@ import sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 把apps加入搜索路径
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'courses',
     'organization',
     'operation',
+    'xadmin',
+    'crispy_forms',
 ]
 # 覆盖原有的user
 AUTH_USER_MODEL = "users.UserProfile"
@@ -122,8 +125,8 @@ TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True
+# 默认为true，数据库保存的时候取utc时间
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
