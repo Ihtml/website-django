@@ -3,14 +3,26 @@ __author__ = 'ife'
 __date__ = '$DATE $TIME'
 
 import xadmin
-
+from xadmin import views
 from .models import EmailVerifyRecord, Banner
+
+
+class BaseSetting(object):
+    enable_themes = True
+    use_bootswatch = True
+
+
+class GlobalSettings(object):
+    site_title = "Super Xadmin"
+    site_footer = "学习Django"
+    menu_style = "accordion"
 
 
 class EmailVerifyRecordAdmin(object):
     list_display = ['code', 'email', 'send_type', 'send_time']
     search_fields = ['code', 'email', 'send_type']
     list_filter = ['code', 'email', 'send_type', 'send_time']
+    model_icon = 'fa fa-address-book-o'
 
 
 class BannerAdmin(object):
@@ -21,3 +33,6 @@ class BannerAdmin(object):
 
 xadmin.site.register(EmailVerifyRecord, EmailVerifyRecordAdmin)
 xadmin.site.register(Banner, BannerAdmin)
+
+xadmin.site.register(views.BaseAdminView, BaseSetting)
+xadmin.site.register(views.CommAdminView, GlobalSettings)
