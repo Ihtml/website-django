@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'captcha',
+    'DjangoUeditor',
 ]
 # 覆盖原有的user
 AUTH_USER_MODEL = "users.UserProfile"

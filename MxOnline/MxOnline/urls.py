@@ -19,8 +19,9 @@ from django.views.generic import TemplateView
 import xadmin
 
 from users.views import LoginView
+from users.views import IndexView
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
-    path('', TemplateView.as_view(template_name='index.html'), name="index"),
+    path('', IndexView.as_view(), name="index"),
     path('login/', LoginView.as_view(), name="login"),
 ]

@@ -10,4 +10,5 @@ from . import views
 # 命名空间
 app_name = 'courses'
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='index.html'), name="index"),
 ]
