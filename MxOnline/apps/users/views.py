@@ -1,10 +1,5 @@
 # _*_ encoding:utf-8 _*_
 import  json
-import sys
-import os
-curPath = os.path.abspath(os.path.dirname(__file__))
-rootPath = os.path.split(curPath)[0]
-sys.path.append(rootPath)
 
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
