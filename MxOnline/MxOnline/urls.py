@@ -20,9 +20,10 @@ root_path = os.path.abspath(os.path.dirname(current_directory) + os.path.sep + "
 sys.path.append(root_path)
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
 import xadmin
+
 
 from users.views import LoginView
 from users.views import IndexView
@@ -30,4 +31,6 @@ urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('', IndexView.as_view(), name="index"),
     path('login/', LoginView.as_view(), name="login"),
+    path('courses/', include('courses.urls'), name="courses"),
+    path('users/', include('users.urls'), name="users"),
 ]

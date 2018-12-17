@@ -5,10 +5,11 @@ __date__ = '2018-12-04 22:12'
 from django.urls import path
 from django.views.generic import TemplateView
 from . import views
-
+from .views import CourseListView
 
 # 命名空间
 app_name = 'courses'
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name="index"),
+    path('list/', CourseListView.as_view(), name="course_list"),
 ]

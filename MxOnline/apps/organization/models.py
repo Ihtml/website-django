@@ -1,6 +1,6 @@
 # _*_ encoding:utf-8 _*_
 from datetime import datetime
-
+from DjangoUeditor.models import UEditorField
 from django.db import models
 # Create your models here.
 
@@ -20,7 +20,8 @@ class CityDict(models.Model):
 
 class CourseOrg(models.Model):
     name = models.CharField(max_length=50, verbose_name=u"机构名称")
-    desc = models.TextField(verbose_name=u"机构描述")
+    desc = UEditorField(verbose_name=u"机构描述",width=900, height=300, imagePath="org/ueditor/",
+                                         filePath="org/ueditor/", default='')
     tag = models.CharField(default="全国知名", max_length=10, verbose_name=u"机构标签")
     category = models.CharField(default="pxjg", verbose_name=u"机构类别", max_length=20, choices=(("pxjg","培训机构"),("gr","个人"),("gx","高校")))
     click_nums = models.IntegerField(default=0, verbose_name=u"点击数")
